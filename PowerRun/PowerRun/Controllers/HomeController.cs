@@ -22,9 +22,9 @@ namespace PowerRun.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Profile()
         {
-            ViewData["Message"] = "Your contact page.";
+            ViewData["Message"] = "Your Profile page.";
 
             return View();
         }
