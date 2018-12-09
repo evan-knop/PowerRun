@@ -5,11 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using PowerRun.Areas.Identity.Data;
 
 namespace PowerRun.Models
 {
-    public partial class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    public partial class ApplicationDbContext : IdentityDbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

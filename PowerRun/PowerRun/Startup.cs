@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PowerRun.Areas.Identity.Data;
 using PowerRun.Models;
 
 namespace PowerRun
@@ -29,12 +28,7 @@ namespace PowerRun
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("PowerRunContextConnection")));
-
-            //services.AddDefaultIdentity<IdentityUser>()
-            //       .AddEntityFrameworkStores<ApplicationDbContext>()
-            //        .AddDefaultTokenProviders();
-
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

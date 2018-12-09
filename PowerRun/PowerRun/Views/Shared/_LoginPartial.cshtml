@@ -1,7 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Identity
-@using PowerRun.Areas.Identity.Data
-@inject SignInManager<PowerRunUser> SignInManager
-@inject UserManager<PowerRunUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 @if (SignInManager.IsSignedIn(User))
 {

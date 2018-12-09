@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using PowerRun.Areas.Identity.Data;
 using PowerRun.Models;
 
 [assembly: HostingStartup(typeof(PowerRun.Areas.Identity.IdentityHostingStartup))]
@@ -19,9 +18,9 @@ namespace PowerRun.Areas.Identity
             {
                 services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(
-                        context.Configuration.GetConnectionString("PowerRunContextConnection")));
+                        context.Configuration.GetConnectionString("DefaultConnection")));
 
-                services.AddDefaultIdentity<PowerRunUser>()
+                services.AddDefaultIdentity<IdentityUser>()
                     .AddEntityFrameworkStores<ApplicationDbContext>();
             });
         }

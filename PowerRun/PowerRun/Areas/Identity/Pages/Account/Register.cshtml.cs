@@ -9,21 +9,20 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using PowerRun.Areas.Identity.Data;
 
 namespace PowerRun.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<PowerRunUser> _signInManager;
-        private readonly UserManager<PowerRunUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<PowerRunUser> userManager,
-            SignInManager<PowerRunUser> signInManager,
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -67,7 +66,7 @@ namespace PowerRun.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
-                var user = new PowerRunUser { UserName = Input.Email, Email = Input.Email };
+                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
@@ -77,9 +76,8 @@ namespace PowerRun.Areas.Identity.Pages.Account
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
-                        values: new { userId = user.Id, code = code },
+                        values: new { userId = user.Id, code },
                         protocol: Request.Scheme);
-
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
