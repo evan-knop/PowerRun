@@ -15,13 +15,14 @@ namespace PowerRun.Areas.Identity
     {
         public void Configure(IWebHostBuilder builder)
         {
-            builder.ConfigureServices((context, services) => {
-                services.AddDbContext<PowerRunContext>(options =>
+            builder.ConfigureServices((context, services) =>
+            {
+                services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("PowerRunContextConnection")));
 
                 services.AddDefaultIdentity<PowerRunUser>()
-                    .AddEntityFrameworkStores<PowerRunContext>();
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
             });
         }
     }

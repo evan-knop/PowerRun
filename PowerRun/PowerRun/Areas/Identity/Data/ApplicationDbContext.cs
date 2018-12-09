@@ -9,9 +9,9 @@ using PowerRun.Areas.Identity.Data;
 
 namespace PowerRun.Models
 {
-    public class PowerRunContext : IdentityDbContext<PowerRunUser>
+    public partial class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
-        public PowerRunContext(DbContextOptions<PowerRunContext> options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }

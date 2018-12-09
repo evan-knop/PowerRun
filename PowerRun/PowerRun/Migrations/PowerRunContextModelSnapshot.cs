@@ -4,11 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using PowerRun.Areas.Identity.Data;
 using PowerRun.Models;
 
 namespace PowerRun.Migrations
 {
-    [DbContext(typeof(PowerRunContext))]
+    [DbContext(typeof(PowerRunUser))]
     partial class PowerRunContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -133,7 +134,7 @@ namespace PowerRun.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("PowerRun.Areas.Identity.Data.PowerRunUser", b =>
+            modelBuilder.Entity("PowerRun.Areas.Identity.Data.PowerRun", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd();
@@ -194,7 +195,7 @@ namespace PowerRun.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRunUser")
+                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRun")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -202,7 +203,7 @@ namespace PowerRun.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRunUser")
+                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRun")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -215,7 +216,7 @@ namespace PowerRun.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRunUser")
+                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRun")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -223,7 +224,7 @@ namespace PowerRun.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRunUser")
+                    b.HasOne("PowerRun.Areas.Identity.Data.PowerRun")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
