@@ -12,6 +12,7 @@ namespace PowerRun.Controllers
     [Authorize]
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -31,6 +32,7 @@ namespace PowerRun.Controllers
 
             return View();
         }
+
 
         public IActionResult Privacy()
         {

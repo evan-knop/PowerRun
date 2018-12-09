@@ -1,6 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model NewRunModel
+
+<form method="post" action="/PostRun" role="form">
+    <input asp-for="Distance" type="number" id="Distance" placeholder="Enter distance ran" />
+    <input asp-for="Pace" type="text" id="Pace" placeholder="Enter pace" />
+
+    <input type="submit" />
+</form>
+
 
     
 
