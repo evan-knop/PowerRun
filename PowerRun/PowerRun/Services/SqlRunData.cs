@@ -29,7 +29,8 @@ namespace PowerRun.Services
 
         public IEnumerable<Run> GetAll()
         {
-            return _context.Runs.OrderBy(x => x.Date);
+            return _context.Runs
+                .OrderBy(x => x.Date);
         }
     }
 }

@@ -12,7 +12,6 @@ namespace PowerRun.Controllers
 {
     public class RunController : Controller
     {
-        private readonly UserManager<IdentityUser> _userManager;
         private IRunData _runData;
 
         public RunController(IRunData runData)
@@ -32,7 +31,7 @@ namespace PowerRun.Controllers
             var newRun = new Run()
             {
                 Date = DateTime.Now,
-                Username = "Test for now",
+                Username = User.Identity.Name,
                 Time = model.Time,
                 Distance = model.Distance,
                 Pace = model.Pace
@@ -42,6 +41,13 @@ namespace PowerRun.Controllers
 
             return View("~/Views/Home/Profile.cshtml", newRun);
 
+        }
+
+        [HttpGet]
+        public IActionResult GetAllRuns()
+        {
+            var runs = _runData.GetAll();
+            return View("~/Views/Home/Index.cshtml", runs);
         }
 
     }

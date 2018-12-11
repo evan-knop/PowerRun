@@ -1,6 +1,27 @@
-﻿@{
+﻿@model IEnumerable<Run>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
+<h3>List of all Runs</h3>
 
+<table>
+    <tr>
+        <th>Username</th>
+        <th>Time</th>
+        <th>Distance</th>
+        <th>Pace</th>
+    </tr>
 
+    @foreach (var run in Model)
+        {
+            <tr>
+                <td>@run.Username</td>
+                <td>@run.Time</td>
+                <td>@run.Distance</td>
+                <td>@run.Pace</td>
+            </tr>
+        }   
+
+</table>
