@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PowerRun.Models
+namespace PowerRun.ViewModels
 {
-    public class NewRunModel
+    public class RunEditModel
     {
-        public int ID { get; set; }
-        public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
         public decimal Distance { get; set; }
         public TimeSpan Pace { get; set; }
