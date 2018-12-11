@@ -40,7 +40,7 @@ namespace PowerRun.Controllers
 
             newRun = _runData.Add(newRun);
 
-            return View("~/Views/Home/Index.cshtml", newRun);
+            return View("~/Views/Home/Profile.cshtml", newRun);
 
         }
 
