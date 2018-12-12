@@ -24,9 +24,6 @@ namespace PowerRun
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            //services.AddDbContext<PowerRunDbContext>(options =>
-            //    options.UseSqlServer(Configuration.GetConnectionString("RunConnection")));
-
             services.AddScoped<IRunData, SqlRunData>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

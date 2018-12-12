@@ -27,10 +27,10 @@ namespace PowerRun.Services
             return _context.Runs.FirstOrDefault(x => x.ID == id);
         }
 
-        public IEnumerable<Run> GetAll()
+        public IEnumerable<Run> GetAll(string username)
         {
             return _context.Runs
-                .OrderBy(x => x.Date);
+                .Where(x => x.Username == username);
         }
     }
 }

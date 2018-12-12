@@ -27,9 +27,9 @@ namespace PowerRun.Services
             return run;
         }
 
-        public IEnumerable<Run> GetAll()
+        public IEnumerable<Run> GetAll(string username)
         {
-            return _runs.OrderBy(x => x.Pace);
+            return _runs;
         }
     }
 }

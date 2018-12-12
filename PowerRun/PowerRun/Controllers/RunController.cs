@@ -44,10 +44,10 @@ namespace PowerRun.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAllRuns()
+        public IActionResult ViewRuns()
         {
-            var runs = _runData.GetAll();
-            return View("~/Views/Home/Index.cshtml", runs);
+            var runs = _runData.GetAll(User.Identity.Name);
+            return View(runs);
         }
 
     }

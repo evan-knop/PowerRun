@@ -1,14 +1,11 @@
 ﻿using PowerRun.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace PowerRun.Services
 {
-   public interface IRunData
+    public interface IRunData
     {
-        IEnumerable<Run> GetAll();
+        IEnumerable<Run> GetAll(string username);
         Run Add(Run run);
     }
 }
