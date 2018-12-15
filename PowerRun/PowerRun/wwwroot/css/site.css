@@ -3,6 +3,11 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: rgb(230,230,230);
+}
+
+body {
+    background-image: url('../images/runner-1814460_1920.jpg');
 }
 
 /* Wrapping element */
@@ -18,8 +23,8 @@ body {
     left: 50%;
     width: 30em;
     height: 18em;
-    margin-top: -9em; 
-    margin-left: -15em; 
+    margin-top: -9em;
+    margin-left: -15em;
     border: 1px solid #ccc;
     background-color: #f3f3f3;
 }
@@ -36,12 +41,53 @@ body {
     left: 0;
 }
 
+/*HOME SECTION*/
+
+.homeHeadingPhoto {
+    width: 350px;
+    height: 75px;
+    margin: 15px 0px;
+}
+
+.homeHeading h1 {
+    font-size: 70px;
+    font-weight: 700;
+}
+
+/******************/
+
+
+/*ABOUT SECTION*/
+
 .WhatIsPowerRun {
     padding-top: 20px;
     font-family: 'Trebuchet MS', sans-serif;
-    font-size: 16px;
+    font-size: 17px;
+    font-weight: 500;
 }
+
+.about {
+    padding: 15px;
+    margin: 20px;
+}
+
+    .about h1 {
+        font-family: 'Trebuchet MS', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+    }
+/************************/
 
 td, th {
     padding: 5px;
+}
+
+span a{
+    font: 600 16px 'Trebuchet MS', sans-serif;
+    color: black;
+}
+
+
+td{
+    margin: 5px;
 }

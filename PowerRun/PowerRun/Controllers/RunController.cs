@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using PowerRun.Helpers;
 using PowerRun.Models;
 using PowerRun.Services;
 using PowerRun.ViewModels;
 
 namespace PowerRun.Controllers
 {
+    [Authorize]
     public class RunController : Controller
     {
         private IRunData _runData;
@@ -37,6 +36,7 @@ namespace PowerRun.Controllers
                 Pace = model.Pace
             };
 
+           // newRun = RunHelper.FormatRun(newRun);
             newRun = _runData.Add(newRun);
 
             return View("~/Views/Home/Profile.cshtml", newRun);
