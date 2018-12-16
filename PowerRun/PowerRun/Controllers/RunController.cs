@@ -18,6 +18,13 @@ namespace PowerRun.Controllers
             _runData = runData;
         }
 
+        public IActionResult Profile()
+        {
+            var runs = _runData.GetAll(User.Identity.Name);
+            RunEditModel avgs = RunHelper.CalculateAverages(runs);
+            return View(avgs);
+        }
+
         [HttpGet]
         public IActionResult AddRun()
         {
@@ -48,15 +55,6 @@ namespace PowerRun.Controllers
         {
             var runs = _runData.GetAll(User.Identity.Name);
             return View(runs);
-        }
-
-        [HttpGet]
-        public IActionResult ViewAverages()
-        {
-            var runs = _runData.GetAll(User.Identity.Name);
-            RunEditModel avgs = RunHelper.CalculateAverages(runs);
-
-            return View("~/Views/Home/Profile.cshtml", avgs);
         }
 
     }

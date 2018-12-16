@@ -39,6 +39,7 @@ namespace PowerRun.Helpers
                 avgDistance += run.Distance;
             }
 
+            //Divide by number of runs to get Average
             avgTime = avgTime / runs.Count();
             avgPace = avgPace / runs.Count();
             avgDistance = avgDistance / runs.Count();
@@ -47,7 +48,7 @@ namespace PowerRun.Helpers
             {
                 Time = avgTime,
                 Pace = avgPace,
-                Distance = avgDistance
+                Distance = Math.Round(avgDistance, 2)
             };
         }
     }

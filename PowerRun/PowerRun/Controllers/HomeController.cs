@@ -26,19 +26,6 @@ namespace PowerRun.Controllers
             return View();
         }
 
-        public IActionResult Profile()
-        {
-            ViewData["Message"] = "Your Profile page.";
-
-            return View();
-        }
-
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
