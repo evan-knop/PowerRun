@@ -50,6 +50,15 @@ namespace PowerRun.Controllers
             return View(runs);
         }
 
+        [HttpGet]
+        public IActionResult ViewAverages()
+        {
+            var runs = _runData.GetAll(User.Identity.Name);
+            RunEditModel avgs = RunHelper.CalculateAverages(runs);
+
+            return View("~/Views/Home/Profile.cshtml", avgs);
+        }
+
     }
 
 }

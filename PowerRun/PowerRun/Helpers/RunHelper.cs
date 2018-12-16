@@ -1,4 +1,5 @@
 ﻿using PowerRun.Models;
+using PowerRun.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,31 @@ namespace PowerRun.Helpers
             }
 
             return run;
+        }
+
+        public static RunEditModel CalculateAverages(IEnumerable<Run> runs)
+        {
+            TimeSpan avgTime = new TimeSpan();
+            TimeSpan avgPace = new TimeSpan();
+            decimal avgDistance = 0;
+
+            foreach(Run run in runs)
+            {
+                avgTime += run.Time;
+                avgPace += run.Pace;
+                avgDistance += run.Distance;
+            }
+
+            avgTime = avgTime / runs.Count();
+            avgPace = avgPace / runs.Count();
+            avgDistance = avgDistance / runs.Count();
+
+            return new RunEditModel
+            {
+                Time = avgTime,
+                Pace = avgPace,
+                Distance = avgDistance
+            };
         }
     }
 }

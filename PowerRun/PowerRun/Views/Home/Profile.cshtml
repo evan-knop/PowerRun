@@ -1,5 +1,5 @@
-﻿@using PowerRun.Models
-@model IEnumerable<Run>
+﻿@using PowerRun.ViewModels
+@model RunEditModel
 @{
     ViewData["Title"] = "Profile";
 }
@@ -11,3 +11,13 @@
 <span>@User.Identity.Name</span>
 <br />
 <hr />
+
+<h3> Averages </h3>
+
+<table>
+    <tr>
+        <td>Average Distance</td>
+        <td>@Model.Distance</td>
+    </tr>
+</table>
+
