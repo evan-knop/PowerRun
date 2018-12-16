@@ -36,10 +36,10 @@ namespace PowerRun.Controllers
                 Pace = model.Pace
             };
 
-           // newRun = RunHelper.FormatRun(newRun);
+            newRun = RunHelper.FormatRun(newRun);
             newRun = _runData.Add(newRun);
 
-            return View("~/Views/Home/Profile.cshtml", newRun);
+            return View("~/Views/Run/NewRunAdded.cshtml", newRun);
 
         }
 

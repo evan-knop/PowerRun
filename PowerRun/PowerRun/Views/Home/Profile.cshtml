@@ -1,5 +1,5 @@
-﻿@model Run
-
+﻿@using PowerRun.Models
+@model IEnumerable<Run>
 @{
     ViewData["Title"] = "Profile";
 }
@@ -7,21 +7,7 @@
 
 
 <br />
-<h4>New Run Added!</h4>
 
-<table>
-    <tr>
-        <th>Username</th>
-        <th>Time</th>
-        <th>Distance</th>
-        <th>Pace</th>
-    </tr>
-
-
-    <tr>
-        <td>@User.Identity.Name</td>
-        <td>@Model.Time</td>
-        <td>@Model.Distance</td>
-        <td>@Model.Pace</td>
-    </tr>
-</table>
+<span>@User.Identity.Name</span>
+<br />
+<hr />

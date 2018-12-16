@@ -1,32 +1,49 @@
 ﻿@using PowerRun.Models
 @model Run
+
+@*<script type="text/javascript">
+
+    function Autofill() {
+        var $time = $('#Time').val() 
+        var $distance
+    }
+
+</script>*@
+
 @{
-<form asp-controller="Run" asp-action="AddRun" asp-route-returnurl="@ViewBag.ReturnUrl" method="post" role="form">
+
+<h3>Add a run</h3>
+
+<form asp-controller="Run" asp-action="AddRun" asp-route-returnurl="@ViewBag.ReturnUrl" class="form-horizontal" method="post" role="form">
     <div asp-validation-summary="All" class="text-danger"></div>
     <div class="form-group">
         <label asp-for="Time" class="col-md-2 control-label"></label>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <input asp-for="Time" class="form-control" />
             <span asp-validation-for="Time" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
         <label asp-for="Distance" class="col-md-2 control-label"></label>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <input asp-for="Distance" class="form-control" />
             <span asp-validation-for="Distance" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
         <label asp-for="Pace" class="col-md-2 control-label"></label>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <input asp-for="Pace" class="form-control" />
             <span asp-validation-for="Pace" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
-        <div class="col-md-4">
+        <div class="col-md-2"></div>
+        <div class="col-md-1">
             <input type="submit" />
+        </div>
+        <div class="col-md-1">
+            <input type="reset" />
         </div>
     </div>
 
